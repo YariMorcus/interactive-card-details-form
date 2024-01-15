@@ -1,1 +1,11 @@
-$font-size-quote: 2.8rem; // 28px
+$body-copy: 1.8rem; // 18px
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/spacegrotesk-medium.woff2') format('woff2'),
+    url('../fonts/spacegrotesk-medium.woff') format('woff'),
+    url('../fonts/spacegrotesk-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
