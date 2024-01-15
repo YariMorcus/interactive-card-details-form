@@ -15,6 +15,8 @@ Difficulty: `junior`
   - [Overview](#overview)
     - [The challenge](#the-challenge)
     - [Links](#links)
+  - [Project information](#project-information)
+    - [User stories and features](#user-stories-and-features)
   - [Author](#author)
 
 ## Overview
@@ -36,10 +38,34 @@ The users should be able to:
 - Solution URL: [Open GitHub repository](https://github.com/YariMorcus/interactive-card-details-form)
 
 [//]: # 'Insert following when online: - Live Site URL: [open Netlify / GitHub page][fill in link]'
-[//]: # '## Project information'
-[//]: # '### User stories and features'
-[//]: # '1. As a user I want to generate a new piece of advice so I might be able to learn something from it'
-[//]: # '**Feature**: A button that generates a new piece of advice based on an API call'
+
+## Project information
+
+### User stories and features
+
+1. As a user, I want to fill in the form so I can fill in the card details
+
+   **Features**
+
+   1. A form in which the user can fill in a `cardholder name`, `card number`, `
+exp. date (MM/YY)` and `CVC`
+
+   2. Update card details in real-time
+
+   3. A `confirm` button so the user can submit their card details
+
+   4. Redirect user to thank you page when **all** requirements are met
+
+   5. A system that provides the user with helpful error messages (both inline and form submit validation)
+
+   6. A system that provides a completed state when form field is valid
+
+2. As a user, I want to see a 'Thank you' page so that I know that my card details are registered
+
+   **Features**
+
+   1. A `continue` button that redirects the user back to an empty form.
+
 [//]: # 'Optional: ### Flowchart'
 [//]: # 'Optional: insert flowchart link below'
 
