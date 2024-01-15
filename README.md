@@ -47,24 +47,22 @@ The users should be able to:
 
    **Features**
 
-   1. A form in which the user can fill in a `cardholder name`, `card number`, `
-exp. date (MM/YY)` and `CVC`
-
-   2. Update card details in real-time
-
-   3. A `confirm` button so the user can submit their card details
-
-   4. Redirect user to thank you page when **all** requirements are met
-
-   5. A system that provides the user with helpful error messages (both inline and form submit validation)
-
-   6. A system that provides a completed state when form field is valid
+   |     |                                                                                                    |
+   | --- | -------------------------------------------------------------------------------------------------- |
+   | 1   | A form in which the user can fill in a cardholder name, card number, exp. date (MM/YY) and CVC     |
+   | 2   | Update card details in real-time                                                                   |
+   | 3   | A `confirm` button so the user can submit their card details                                       |
+   | 4   | Redirect user to thank you page when all requirements are met                                      |
+   | 5   | System that provides the user with helpful error messages (both inline and form submit validation) |
+   | 6   | System that provides a completed state when form field is valid                                    |
 
 2. As a user, I want to see a 'Thank you' page so that I know that my card details are registered
 
    **Features**
 
-   1. A `continue` button that redirects the user back to an empty form.
+   |     |                                                                   |
+   | --- | ----------------------------------------------------------------- |
+   | 1   | A `continue` button that redirects the user back to an empty form |
 
 [//]: # 'Optional: ### Flowchart'
 [//]: # 'Optional: insert flowchart link below'
