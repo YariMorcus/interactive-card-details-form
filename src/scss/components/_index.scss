@@ -1,2 +1,8 @@
-// Forward advice-generator file when _index.scss is @used
-// @forward 'advice-generator';
+// Forward card-back file when _index.scss is @used
+@forward 'card-back';
+
+// Forward card-front file when _index.scss is @used
+@forward 'card-front';
+
+// Forward form file when _index.scss is @used
+@forward 'form';
