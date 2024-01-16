@@ -66,13 +66,13 @@
 
             <fieldset class="card-form__exp-date">
                 <legend class="card-form__exp-date-legend">Exp. date (m/yy) <span aria-label="required">*</span></legend>
-                <input type="number" class="card-form__input" placeholder="MM" min="1" max="12" pattern="^\d{1,2}$" required>
-                <input type="number" class="card-form__input" placeholder="YY" minlength="4" maxlength="4" pattern="^\d{4}$" required>
+                <input type="number" class="card-form__input" placeholder="MM" min="1" max="12" required>
+                <input type="number" class="card-form__input" placeholder="YY" min="4" max="4" required>
             </fieldset> <!-- .card-form__exp-date -->
 
             <div class="card-form-group">
                 <label for="card-form__cvc" class="card-form__label">Cvc <span aria-label="required">*</span></label>
-                <input type="number" id="card-form__cvc" class="card-form__input" minlength="3" maxlength="3" pattern="^\d{3}$" placeholder="e.g. 123" required>
+                <input type="number" id="card-form__cvc" class="card-form__input" min="3" max="3" placeholder="e.g. 123" required>
             </div> <!-- .card-form-group -->
 
             <button>Confirm</button>
