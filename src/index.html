@@ -33,7 +33,27 @@
 
 </head>
 <body>
+    <main>
+        <picture class="bg">
+            <source class="bg__source" srcset="img/bg-main-desktop.webp" media="(min-width: 768px)">
+            <img class="bg__img" src="img/bg-main-mobile.webp" alt="">
+        </picture> <!-- .bg -->
 
+        <div class="cards">
+            <div class="card-back">
+                <span class="card-back__cvc">000</span>
+            </div> <!-- .card-back -->
+
+            <div class="card-front">
+                <span class="card-front__card-number">0000 0000 0000 0000</span>
+                <div class="card-front__name-exp-container">
+                    <span class="card-front__cardholder-name"></span>
+                    <span class="card-front__exp-date">00/00</span>
+                </div> <!-- .card-front__name-exp-container -->
+            </div> <!-- .card-front-->
+        </div> <!-- .cards -->
+
+    </main>
     <footer class="footer">
         Challenge by <a class="footer__link" rel="noopener noreferrer" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
         Coded&nbsp;by&nbsp;<a class="footer__link" rel="noopener noreferrer" href="https://www.linkedin.com/in/yarimorcus" target="_blank">Yari&nbsp;Morcus</a>.
