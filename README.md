@@ -17,6 +17,7 @@ Difficulty: `junior`
     - [Links](#links)
   - [Project information](#project-information)
     - [User stories and features](#user-stories-and-features)
+    - [Flowchart](#flowchart)
   - [Author](#author)
 
 ## Overview
@@ -64,8 +65,9 @@ The users should be able to:
    | --- | ----------------------------------------------------------------- |
    | 1   | A `continue` button that redirects the user back to an empty form |
 
-[//]: # 'Optional: ### Flowchart'
-[//]: # 'Optional: insert flowchart link below'
+### Flowchart
+
+![Flowchart of the interactive card details form](flowchart.jpg)
 
 ## Author
 
