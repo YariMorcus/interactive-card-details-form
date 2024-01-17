@@ -4,6 +4,8 @@
 // Import mixins
 @use '../abstracts/mixins' as m;
 
+@use 'typography.scss' as t;
+
 /* Set core root defaults */
 html {
   font-size: 10px;
@@ -19,14 +21,17 @@ body {
   display: flex;
   flex-direction: column;
   text-rendering: optimizeSpeed;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: t.$body-copy;
   line-height: 1.5;
+  letter-spacing: 1px;
 }
 
 main {
   display: flex;
   align-items: center;
   flex: 1;
+  flex-direction: column;
 }
 
 /* A elements that don't have a class get default styles */
@@ -50,6 +55,10 @@ img {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.bg {
+  margin-bottom: 13rem;
 }
 
 .footer {
