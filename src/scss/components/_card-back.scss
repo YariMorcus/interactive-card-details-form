@@ -1,2 +1,18 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+
+.card-back {
+  width: 80vw;
+  height: 20rem;
+  background-image: url(../img/bg-card-back.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &__cvc {
+    position: absolute;
+    top: 7.3rem;
+    right: 3.7rem;
+    font-size: 1rem;
+    color: v.$white;
+  }
+}

@@ -1,2 +1,29 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
+
+.card-front {
+  position: absolute;
+  top: 8.8rem;
+  left: -4rem;
+  padding: 2.1rem;
+  width: 75vw;
+  height: 20rem;
+  color: v.$white;
+  background-image: url(../img/card-logo.svg), url(../img/bg-card-front.webp);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 50px, contain;
+  background-position: 2.5rem 2.5rem, 0 0;
+
+  &__card-number {
+    display: block;
+    margin: 5.5rem auto 1rem;
+    letter-spacing: 2px;
+  }
+
+  &__name-exp-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
