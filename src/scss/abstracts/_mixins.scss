@@ -12,6 +12,13 @@
   }
 }
 
+// Desktop - 1124px
+@mixin breakpoint-lg() {
+  @media (min-width: 70.25rem) {
+    @content;
+  }
+}
+
 // Landscape - orientation
 @mixin orientation-landscape() {
   @media (orientation: Landscape) {
