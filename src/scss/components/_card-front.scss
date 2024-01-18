@@ -3,21 +3,21 @@
 
 .card-front {
   position: absolute;
-  top: 8.8rem;
-  left: -4rem;
+  top: 8.4rem;
+  left: -6rem;
   padding: 2.1rem;
-  width: 75vw;
-  height: 20rem;
+  width: 27.5rem;
+  height: 15rem;
   color: v.$white;
   background-image: url(../img/card-logo.svg), url(../img/bg-card-front.webp);
   background-repeat: no-repeat, no-repeat;
   background-size: 50px, contain;
   background-position: 2.5rem 2.5rem, 0 0;
+  box-shadow: 0 28px 25px -15px v.$light-grayish-violet;
 
   &__card-number {
     display: block;
     margin: 5.5rem auto 1rem;
-    font-size: 1.8rem;
   }
 
   &__name-exp-container {
