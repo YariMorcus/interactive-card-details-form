@@ -1,3 +1,6 @@
+// Forward button file when _index.scss is @used
+@forward 'button';
+
 // Forward card-back file when _index.scss is @used
 @forward 'card-back';
 
@@ -6,3 +9,6 @@
 
 // Forward form file when _index.scss is @used
 @forward 'form';
+
+// Forward thank-you-card file when _index.scss is @used
+@forward 'thank-you-card';

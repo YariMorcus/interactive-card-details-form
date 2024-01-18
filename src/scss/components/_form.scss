@@ -67,17 +67,4 @@
   &__input-exp-yy {
     width: 45%;
   }
-
-  &__submit {
-    padding: 1.5rem;
-    width: 100%;
-    color: v.$white;
-    background-color: v.$very-dark-violet;
-    border: none;
-    border-radius: 0.8rem;
-
-    &:focus-visible {
-      outline: 2px solid hsl(306deg 77.83% 48.79%);
-    }
-  }
 }

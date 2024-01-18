@@ -1,0 +1,15 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.button {
+  padding: 1.5rem;
+  width: 100%;
+  color: v.$white;
+  background-color: v.$very-dark-violet;
+  border: none;
+  border-radius: 0.8rem;
+
+  &:focus-visible {
+    outline: 2px solid v.$button-focus-visible-outline;
+  }
+}
