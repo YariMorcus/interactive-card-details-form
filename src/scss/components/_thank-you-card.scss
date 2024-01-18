@@ -1,0 +1,22 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.thank-you {
+  margin: 0 2.5rem 4rem;
+  text-align: center;
+
+  &__success-icon {
+    margin: 0 auto 3rem;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-bottom: 5rem;
+    letter-spacing: 1px;
+    color: v.$dark-grayish-violet;
+  }
+}
