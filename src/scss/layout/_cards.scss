@@ -1,5 +1,14 @@
+@use '../abstracts/mixins' as m;
+
 .cards {
   position: absolute;
   top: 3rem;
   right: 2rem;
+
+  @include m.breakpoint-lg() {
+    top: calc(50% + 4rem);
+    display: flex;
+    flex-direction: column-reverse;
+    transform: translateY(-50%);
+  }
 }

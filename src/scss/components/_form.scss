@@ -19,12 +19,12 @@
 
   &__label {
     display: block;
-    font-size: 1.3rem;
     text-transform: uppercase;
   }
 
   &__label,
   &__exp-date-legend {
+    font-size: 1.3rem;
     margin-bottom: 0.6rem;
   }
 
@@ -49,6 +49,14 @@
 
     &::placeholder {
       color: v.$form-placeholder-text-color;
+
+      @include m.breakpoint-lg() {
+        font-size: 1.8rem;
+      }
+    }
+
+    @include m.breakpoint-lg() {
+      padding: 1.5rem 2rem;
     }
   }
 
@@ -59,12 +67,16 @@
   }
 
   &__exp-date-legend {
-    font-size: 1.3rem;
     text-transform: uppercase;
   }
 
   &__input-exp-mm,
   &__input-exp-yy {
     width: 45%;
+  }
+
+  @include m.breakpoint-lg() {
+    margin: 0 2.5rem 4rem 10rem;
+    width: 40rem;
   }
 }

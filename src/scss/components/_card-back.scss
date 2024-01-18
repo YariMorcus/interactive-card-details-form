@@ -14,5 +14,17 @@
     right: 3.7rem;
     font-size: 1rem;
     color: v.$white;
+
+    @include m.breakpoint-lg() {
+      top: 10.6rem;
+      right: 6rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  @include m.breakpoint-lg() {
+    position: relative;
+    width: 44.7rem;
+    height: 24.5rem;
   }
 }

@@ -31,6 +31,10 @@ main {
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  @include m.breakpoint-lg() {
+    flex-direction: initial;
+  }
 }
 
 /* A elements that don't have a class get default styles */
@@ -54,10 +58,6 @@ img {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.bg {
-  margin-bottom: 7rem;
 }
 
 .footer {
@@ -87,3 +87,26 @@ img {
 //     padding: 2rem 0;
 //   }
 // }
+
+// todo: add classes below in another file
+.left-column,
+.right-column {
+  @include m.breakpoint-lg() {
+    flex: 1;
+  }
+}
+
+.left-column {
+  margin-bottom: 7rem;
+
+  @include m.breakpoint-lg() {
+    position: relative;
+  }
+}
+
+.right-column {
+  @include m.breakpoint-lg() {
+    display: flex;
+    align-items: center;
+  }
+}
