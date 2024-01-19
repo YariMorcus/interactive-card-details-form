@@ -19,7 +19,7 @@
 
   @include m.breakpoint-lg() {
     top: calc(50% + 4rem);
-    right: 2rem;
+    right: 0;
     left: initial;
     display: flex;
     flex-direction: column-reverse;

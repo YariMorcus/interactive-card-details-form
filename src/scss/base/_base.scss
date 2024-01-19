@@ -74,7 +74,7 @@ img {
 
 .footer {
   padding: 0 1.28rem 1.28rem;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
   text-align: center;
 
@@ -86,6 +86,12 @@ img {
   //     border-radius: 1px;
   //   }
   // }
+
+  @include m.breakpoint-lg() {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 }
 
 // .noscript {
@@ -110,6 +116,11 @@ img {
 
 .left-column {
   margin-bottom: 11rem;
+  height: 24rem;
+  background-image: url(../img/bg-main-mobile.webp);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
 
   @include m.breakpoint-sm-360() {
     margin-bottom: 7rem;
@@ -117,6 +128,10 @@ img {
 
   @include m.breakpoint-lg() {
     position: relative;
+    margin-bottom: 0;
+    height: initial;
+    background-image: url(../img/bg-main-desktop.webp);
+    background-position-x: left;
   }
 }
 
