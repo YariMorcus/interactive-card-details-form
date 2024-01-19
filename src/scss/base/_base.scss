@@ -125,4 +125,10 @@ img {
     display: flex;
     align-items: center;
   }
+
+  &--thank-you {
+    @include m.breakpoint-lg() {
+      justify-content: center;
+    }
+  }
 }
