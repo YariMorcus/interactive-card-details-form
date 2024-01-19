@@ -49,7 +49,11 @@ $button-focus-visible-outline:      hsl(306deg 77.83% 48.79%);
     1.5 Footer
 */
 
+$footer-link-color:                 hsl(219, 62%, 41%);
+$footer-link-visited-color:         hsl(272, 78%, 54%);
 $footer-link-hover-color:           $button-focus-visible-outline;
+$footer-link-active-color:          hsl(0, 100%, 50%);
+$footer-link-focus-visible-color:   $button-focus-visible-outline;
 
 /*------------------------------------------------------------------
 1. Colors

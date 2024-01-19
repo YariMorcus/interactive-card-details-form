@@ -80,12 +80,22 @@ img {
   letter-spacing: 1px;
 
   &__link {
+    color: v.$footer-link-color;
+
+    &:visited {
+      color: v.$footer-link-visited-color;
+    }
+
     &:hover {
       color: v.$footer-link-hover-color;
     }
 
+    &:active {
+      color: v.$footer-link-active-color;
+    }
+
     &:focus-visible {
-      outline: 2px solid v.$button-focus-visible-outline;
+      outline: 2px solid v.$footer-link-focus-visible-color;
       border-radius: 2px;
     }
   }
