@@ -5,8 +5,16 @@
   top: 3rem;
   right: 2rem;
 
+  @include m.breakpoint-sm() {
+    right: initial;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   @include m.breakpoint-lg() {
     top: calc(50% + 4rem);
+    right: 2rem;
+    left: initial;
     display: flex;
     flex-direction: column-reverse;
     transform: translateY(-50%);

@@ -60,6 +60,18 @@ img {
   }
 }
 
+.bg {
+  @include m.breakpoint-sm() {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include m.breakpoint-lg() {
+    display: initial;
+    justify-content: initial;
+  }
+}
+
 .footer {
   padding: 0 1.28rem 1.28rem;
   font-family: 'Manrope', sans-serif;

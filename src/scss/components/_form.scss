@@ -75,6 +75,11 @@
     width: 45%;
   }
 
+  @include m.breakpoint-sm() {
+    margin: 0 auto 4rem;
+    max-width: 38rem;
+  }
+
   @include m.breakpoint-lg() {
     margin: 0 2.5rem 4rem 10rem;
     width: 40rem;
