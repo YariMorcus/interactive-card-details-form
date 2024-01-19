@@ -5,7 +5,9 @@
   margin: 0 2.5rem 4rem;
 
   &__two-columns {
-    display: flex;
+    @include m.breakpoint-sm-360() {
+      display: flex;
+    }
   }
 
   &__group {
@@ -48,7 +50,12 @@
     }
 
     &::placeholder {
+      font-size: 1.4rem;
       color: v.$form-placeholder-text-color;
+
+      @include m.breakpoint-sm-360() {
+        font-size: initial;
+      }
 
       @include m.breakpoint-lg() {
         font-size: 1.8rem;
@@ -61,9 +68,18 @@
   }
 
   &__exp-date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
     padding: 0;
-    flex: 1;
     border: none;
+
+    @include m.breakpoint-sm-360() {
+      display: initial;
+      justify-content: initial;
+      margin-bottom: initial;
+      flex: 1;
+    }
   }
 
   &__exp-date-legend {
@@ -75,7 +91,7 @@
     width: 45%;
   }
 
-  @include m.breakpoint-sm() {
+  @include m.breakpoint-sm-400() {
     margin: 0 auto 4rem;
     max-width: 38rem;
   }

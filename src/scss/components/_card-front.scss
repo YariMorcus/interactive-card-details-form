@@ -4,7 +4,7 @@
 .card-front {
   position: absolute;
   top: 8.4rem;
-  left: -6rem;
+  left: 0;
   padding: 2.1rem;
   width: 27.5rem;
   height: 15rem;
@@ -35,6 +35,10 @@
     @include m.breakpoint-lg() {
       font-size: 1.3rem;
     }
+  }
+
+  @include m.breakpoint-sm-360() {
+    left: -6rem;
   }
 
   @include m.breakpoint-lg() {

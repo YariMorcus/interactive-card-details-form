@@ -61,7 +61,7 @@ img {
 }
 
 .bg {
-  @include m.breakpoint-sm() {
+  @include m.breakpoint-sm-400() {
     display: flex;
     justify-content: center;
   }
@@ -109,7 +109,11 @@ img {
 }
 
 .left-column {
-  margin-bottom: 7rem;
+  margin-bottom: 11rem;
+
+  @include m.breakpoint-sm-360() {
+    margin-bottom: 7rem;
+  }
 
   @include m.breakpoint-lg() {
     position: relative;
