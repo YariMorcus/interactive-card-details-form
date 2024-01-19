@@ -1,5 +1,12 @@
+// Mobile - 300
+@mixin breakpoint-sm-360() {
+  @media (min-width: 22.5rem) {
+    @content;
+  }
+}
+
 // Mobile - 400px
-@mixin breakpoint-sm() {
+@mixin breakpoint-sm-400() {
   @media (min-width: 25rem) {
     @content;
   }
