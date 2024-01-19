@@ -34,31 +34,35 @@
 </head>
 <body>
     <main>
-        <picture class="bg">
-            <source class="bg__source" srcset="img/bg-main-desktop.webp" media="(min-width: 768px)">
-            <img class="bg__img" src="img/bg-main-mobile.webp" alt="">
-        </picture> <!-- .bg -->
+        <div class="left-column">
+            <picture class="bg">
+                <source class="bg__source" srcset="img/bg-main-desktop.webp" media="(min-width: 1124px)">
+                <img class="bg__img" src="img/bg-main-mobile.webp" alt="">
+            </picture> <!-- .bg -->
 
-        <div class="cards">
-            <div class="card-back">
-                <span class="card-back__cvc">123</span>
-            </div> <!-- .card-back -->
+            <div class="cards">
+                <div class="card-back">
+                    <span class="card-back__cvc">000</span>
+                </div> <!-- .card-back -->
 
-            <div class="card-front">
-                <span class="card-front__card-number">9591 6489 6389 1011</span>
-                <div class="card-front__name-exp-container">
-                    <span class="card-front__cardholder-name">Felicia Leire</span>
-                    <span class="card-front__exp-date">09/26</span>
-                </div> <!-- .card-front__name-exp-container -->
-            </div> <!-- .card-front-->
-        </div> <!-- .cards -->
+                <div class="card-front">
+                    <span class="card-front__card-number">0000 0000 0000 0000</span>
+                    <div class="card-front__name-exp-container">
+                        <span class="card-front__cardholder-name">Jane Appleseed</span>
+                        <span class="card-front__exp-date">00/00</span>
+                    </div> <!-- .card-front__name-exp-container -->
+                </div> <!-- .card-front-->
+            </div> <!-- .cards -->
+        </div> <!-- .left-column -->
 
-        <div class="thank-you">
-            <img src="./img/icon-complete.svg" alt="" class="thank-you__success-icon">
-            <h1 class="thank-you__title">Thank you!</h1>
-            <p class="thank-you__text">We've added your card details</p>
-            <button id="js-thank__you-continue" class="button">Continue</button>
-        </div> <!-- .thank-you -->
+        <div class="right-column">
+            <div class="thank-you">
+                <img src="./img/icon-complete.svg" alt="" class="thank-you__success-icon">
+                <h1 class="thank-you__title">Thank you!</h1>
+                <p class="thank-you__text">We've added your card details</p>
+                <button id="js-thank__you-continue" class="button">Continue</button>
+            </div> <!-- .thank-you -->
+        </div> <!-- .right-column -->
 
     </main>
     <footer class="footer">
