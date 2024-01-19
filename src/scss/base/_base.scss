@@ -77,15 +77,18 @@ img {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
   text-align: center;
+  letter-spacing: 1px;
 
-  // &__link {
-  //   &:hover {
-  //   }
+  &__link {
+    &:hover {
+      color: v.$footer-link-hover-color;
+    }
 
-  //   &:focus-visible {
-  //     border-radius: 1px;
-  //   }
-  // }
+    &:focus-visible {
+      outline: 2px solid v.$button-focus-visible-outline;
+      border-radius: 2px;
+    }
+  }
 
   @include m.breakpoint-lg() {
     position: absolute;
