@@ -1,6 +1,6 @@
-// Mobile - 360px
+// Mobile - 400px
 @mixin breakpoint-sm() {
-  @media (min-width: 22.5rem) {
+  @media (min-width: 25rem) {
     @content;
   }
 }
