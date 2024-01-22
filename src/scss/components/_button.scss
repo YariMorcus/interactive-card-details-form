@@ -9,6 +9,11 @@
   border: none;
   border-radius: 0.8rem;
 
+  &:hover {
+    background-color: v.$button-hover-background-color;
+    cursor: pointer;
+  }
+
   &:focus-visible {
     outline: 2px solid v.$button-focus-visible-outline;
   }
