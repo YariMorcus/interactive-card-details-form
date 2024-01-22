@@ -36,6 +36,10 @@
     border: 1px solid v.$light-grayish-violet;
     border-radius: 0.8rem;
 
+    &--invalid {
+      border-color: v.$form-input-error-color;
+    }
+
     &:focus {
       outline: none;
       background: linear-gradient(v.$white, v.$white) padding-box,
@@ -67,9 +71,17 @@
     }
   }
 
+  &__error {
+    display: none;
+    color: v.$form-input-error-color;
+    font-size: 1.1rem;
+    letter-spacing: initial;
+  }
+
   &__exp-date {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: space-between;
     margin-bottom: 2rem;
     padding: 0;
     border: none;
@@ -79,6 +91,18 @@
       justify-content: initial;
       margin-bottom: initial;
       flex: 1;
+    }
+  }
+
+  &__exp-date-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+
+    @include m.breakpoint-sm-360() {
+      display: block;
+      justify-content: initial;
+      margin-bottom: 0;
     }
   }
 
