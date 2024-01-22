@@ -107,17 +107,22 @@ img {
   }
 }
 
-// .noscript {
-//   padding: 2rem 1rem;
-//   font-size: 2rem;
-//   color: v.$light-cyan;
-//   text-align: center;
-//   border-bottom: 1px solid;
+.noscript {
+  display: block;
+  margin-bottom: 4rem;
+  padding: 2rem 1rem;
+  color: v.$white;
+  font-size: 2rem;
+  text-align: center;
+  background-color: v.$form-input-error-color;
+  border-bottom: 1px solid;
 
-//   @include m.breakpoint-md() {
-//     padding: 2rem 0;
-//   }
-// }
+  @include m.breakpoint-sm-400() {
+    margin: 0 auto 4rem;
+    padding: 2rem 0;
+    max-width: 38rem;
+  }
+}
 
 // todo: add classes below in another file
 .left-column,
@@ -157,6 +162,19 @@ img {
   &--thank-you {
     @include m.breakpoint-lg() {
       justify-content: center;
+    }
+  }
+
+  &--noscript {
+    @include m.breakpoint-lg() {
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  & .noscript {
+    @include m.breakpoint-lg() {
+      margin: 0 2.5rem 4rem 10rem;
     }
   }
 }
