@@ -10,6 +10,28 @@ class FormView extends View {
       handler();
     });
   }
+
+  retrieveCardHolderName() {
+    return this.#parentEl
+      .querySelector('.js-input-cardholder-name')
+      .value.trim();
+  }
+
+  retrieveCardNumber() {
+    return this.#parentEl.querySelector('.js-input-card-number').value.trim();
+  }
+
+  retrieveCardExpDateMM() {
+    return this.#parentEl.querySelector('.js-input-exp-mm').value.trim();
+  }
+
+  retrieveCardExpDateYY() {
+    return this.#parentEl.querySelector('.js-input-exp-yy').value.trim();
+  }
+
+  retrieveCardCVC() {
+    return this.#parentEl.querySelector('.js-input-cvc').value.trim();
+  }
 }
 
 export default new FormView();
