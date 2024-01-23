@@ -1,3 +1,4 @@
+import { SLICE_START_POSITION_INPUT_CLASS_NAME } from '../config';
 import View from './View';
 
 class FormView extends View {
@@ -6,8 +7,14 @@ class FormView extends View {
   addHandlerInputChange(handler) {
     this.#parentEl.addEventListener('input', (e) => {
       const input = e.target.classList.contains('card-form__input');
+
       if (!input) return;
-      handler();
+
+      const changedInput = e.target.className.slice(
+        e.target.className.lastIndexOf(' ') +
+          SLICE_START_POSITION_INPUT_CLASS_NAME
+      );
+      handler(changedInput);
     });
   }
 
