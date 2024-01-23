@@ -1,5 +1,7 @@
 export default class View {
-  #parentEl;
+  _data;
 
-  #data;
+  render(data) {
+    this._data = data;
+  }
 }
