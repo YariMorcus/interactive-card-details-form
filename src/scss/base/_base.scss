@@ -17,9 +17,11 @@ html {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 144rem;
+  min-height: 100vh;
   text-rendering: optimizeSpeed;
   font-family: 'Space Grotesk', sans-serif;
   font-size: t.$body-copy;
