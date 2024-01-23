@@ -7,6 +7,7 @@ import {
   CLASS_NAME_CVC,
   CLASS_NAME_EXP_DATE_MM,
   CLASS_NAME_EXP_DATE_YY,
+  DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY,
 } from './config';
 import state from './model';
 
@@ -23,10 +24,15 @@ const cardHolderNameController = function cardHolderNameController() {
  * Controller is used to handle the card number when input field changed
  * @returns {undefined}
  */
-// TODO: fix jumping issue when no card number is given
 const cardNumberController = function cardNumberController() {
+  // Check if input field is empty, if yes, only show 0
   state.cardNumber = formView.retrieveCardNumber();
-  frontCardView.renderCardNumber(state.cardNumber);
+
+  state.cardNumber === ''
+    ? frontCardView.renderCardNumber(
+        DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY
+      )
+    : frontCardView.renderCardNumber(state.cardNumber);
 };
 
 /**

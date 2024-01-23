@@ -6,3 +6,4 @@ export const CLASS_NAME_CARD_NUMBER = 'card-number';
 export const CLASS_NAME_EXP_DATE_MM = 'exp-mm';
 export const CLASS_NAME_EXP_DATE_YY = 'exp-yy';
 export const CLASS_NAME_CVC = 'cvc';
+export const DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY = 0;
