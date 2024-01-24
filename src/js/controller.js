@@ -11,12 +11,18 @@ import {
 } from './config';
 import state from './model';
 
+import { isEmpty } from './helper';
+
 /**
  * Controller is used to handle the cardholder name when input field changed
  * @returns {undefined}
  */
-const cardHolderNameController = function cardHolderNameController() {
-  state.cardholderName = formView.retrieveCardHolderName();
+const cardHolderNameController = function cardHolderNameController(inputEl) {
+  const name = formView.retrieveCardHolderName();
+
+  if (isEmpty(name)) return formView.renderError(inputEl);
+
+  state.cardholderName = name;
   frontCardView.renderCardHolderName(state.cardholderName);
 };
 
@@ -70,7 +76,8 @@ const cardCVCController = function cardCVCController() {
  */
 const formController = function formController(curInput) {
   // Retrieve cardholder name and render data in UI
-  if (curInput === CLASS_NAME_CARDHOLDER_NAME) cardHolderNameController();
+  if (curInput === CLASS_NAME_CARDHOLDER_NAME)
+    cardHolderNameController(curInput);
 
   // Retrieve card number and render data in UI
   if (curInput === CLASS_NAME_CARD_NUMBER) cardNumberController();

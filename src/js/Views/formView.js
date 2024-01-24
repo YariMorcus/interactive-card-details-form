@@ -10,10 +10,17 @@ class FormView extends View {
 
       if (!input) return;
 
-      const changedInput = e.target.className.slice(
+      let changedInput = e.target.className.slice(
         e.target.className.lastIndexOf(' ') +
           SLICE_START_POSITION_INPUT_CLASS_NAME
       );
+
+      if (changedInput.endsWith('--invalid')) {
+        changedInput = e.target.className.slice(
+          e.target.className.indexOf(' ') + 10,
+          e.target.className.lastIndexOf(' ')
+        );
+      }
       handler(changedInput);
     });
   }
@@ -38,6 +45,25 @@ class FormView extends View {
 
   retrieveCardCVC() {
     return this.#parentEl.querySelector('.js-input-cvc').value.trim();
+  }
+
+  renderError(inputClass, error = "Can't be blank") {
+    // add aria-invalid to  input
+    this.#parentEl
+      .querySelector(`.js-input-${inputClass}`)
+      .setAttribute('aria-invalid', 'true');
+
+    // add .card-form__input--invalid to <input>
+    this.#parentEl
+      .querySelector(`.js-input-${inputClass}`)
+      .classList.add('card-form__input--invalid');
+
+    // Indicate error
+    this.#parentEl
+      .querySelector(`#card-form__error-${inputClass}`)
+      .classList.add('card-form__error--visible');
+    this.#parentEl.querySelector(`#card-form__error-${inputClass}`).innerText =
+      error;
   }
 }
 
