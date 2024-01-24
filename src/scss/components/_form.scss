@@ -78,6 +78,10 @@
     letter-spacing: initial;
   }
 
+  &__error--visible {
+    display: block;
+  }
+
   &__exp-date {
     display: flex;
     flex-direction: column;
