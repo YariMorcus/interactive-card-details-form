@@ -1,3 +1,10 @@
+import {
+  CLASS_NAME_CARDHOLDER_NAME,
+  CLASS_NAME_CARD_NUMBER,
+  CLASS_NAME_CVC,
+  CLASS_NAME_EXP_DATE_MM,
+  CLASS_NAME_EXP_DATE_YY,
+} from '../config';
 import View from './View';
 
 class FormView extends View {
@@ -9,18 +16,23 @@ class FormView extends View {
 
       if (!input) return;
 
+      // Retrieve full class list
       let changedInput = e.target.className;
 
-      if (changedInput.includes('cardholder-name'))
-        changedInput = 'cardholder-name';
+      // Extract field name to identify correct error span
+      if (changedInput.includes(CLASS_NAME_CARDHOLDER_NAME))
+        changedInput = CLASS_NAME_CARDHOLDER_NAME;
 
-      if (changedInput.includes('card-number')) changedInput = 'card-number';
+      if (changedInput.includes(CLASS_NAME_CARD_NUMBER))
+        changedInput = CLASS_NAME_CARD_NUMBER;
 
-      if (changedInput.includes('exp-mm')) changedInput = 'exp-mm';
+      if (changedInput.includes(CLASS_NAME_EXP_DATE_MM))
+        changedInput = CLASS_NAME_EXP_DATE_MM;
 
-      if (changedInput.includes('exp-yy')) changedInput = 'exp-yy';
+      if (changedInput.includes(CLASS_NAME_EXP_DATE_YY))
+        changedInput = CLASS_NAME_EXP_DATE_YY;
 
-      if (changedInput.includes('cvc')) changedInput = 'cvc';
+      if (changedInput.includes(CLASS_NAME_CVC)) changedInput = CLASS_NAME_CVC;
 
       handler(changedInput);
     });
