@@ -48,22 +48,51 @@ class FormView extends View {
   }
 
   renderError(inputClass, error = "Can't be blank") {
-    // add aria-invalid to  input
-    this.#parentEl
-      .querySelector(`.js-input-${inputClass}`)
-      .setAttribute('aria-invalid', 'true');
+    // set aria-invalid to true
+    this.#toggleAria(inputClass, true);
 
-    // add .card-form__input--invalid to <input>
-    this.#parentEl
-      .querySelector(`.js-input-${inputClass}`)
-      .classList.add('card-form__input--invalid');
+    // show red outline
+    this.#showRedOutline(inputClass, true);
 
-    // Indicate error
+    // show error
     this.#parentEl
       .querySelector(`#card-form__error-${inputClass}`)
       .classList.add('card-form__error--visible');
     this.#parentEl.querySelector(`#card-form__error-${inputClass}`).innerText =
       error;
+  }
+
+  hideError(inputClass) {
+    // set aria-invalid to false
+    this.#toggleAria(inputClass, false);
+
+    // hide red outline
+    this.#hideRedOutline(inputClass);
+
+    // hide error
+    this.#parentEl
+      .querySelector(`#card-form__error-${inputClass}`)
+      .classList.remove('card-form__error--visible');
+    this.#parentEl.querySelector(`#card-form__error-${inputClass}`).innerText =
+      '';
+  }
+
+  #toggleAria(inputClass, bool) {
+    this.#parentEl
+      .querySelector(`.js-input-${inputClass}`)
+      .setAttribute('aria-invalid', bool);
+  }
+
+  #showRedOutline(inputClass) {
+    this.#parentEl
+      .querySelector(`.js-input-${inputClass}`)
+      .classList.add('card-form__input--invalid');
+  }
+
+  #hideRedOutline(inputClass) {
+    this.#parentEl
+      .querySelector(`.js-input-${inputClass}`)
+      .classList.remove('card-form__input--invalid');
   }
 }
 

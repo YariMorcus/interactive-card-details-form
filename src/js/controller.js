@@ -22,6 +22,8 @@ const cardHolderNameController = function cardHolderNameController(inputEl) {
 
   if (isEmpty(name)) return formView.renderError(inputEl);
 
+  formView.hideError(inputEl);
+
   state.cardholderName = name;
   frontCardView.renderCardHolderName(state.cardholderName);
 };
