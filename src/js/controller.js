@@ -13,18 +13,27 @@ import state from './model';
 
 import { isEmpty } from './helper';
 
+const errorController = function errorController(data, inputEl) {
+  if (isEmpty(data)) return formView.renderError(inputEl);
+
+  formView.hideError(inputEl);
+};
+
 /**
  * Controller is used to handle the cardholder name when input field changed
  * @returns {undefined}
  */
 const cardHolderNameController = function cardHolderNameController(inputEl) {
+  // Retrieve cardholder name
   const name = formView.retrieveCardHolderName();
 
-  if (isEmpty(name)) return formView.renderError(inputEl);
+  // Apply error handling
+  errorController(name, inputEl);
 
-  formView.hideError(inputEl);
-
+  // Save cardholder name
   state.cardholderName = name;
+
+  // Render cardholder name
   frontCardView.renderCardHolderName(state.cardholderName);
 };
 
@@ -32,10 +41,17 @@ const cardHolderNameController = function cardHolderNameController(inputEl) {
  * Controller is used to handle the card number when input field changed
  * @returns {undefined}
  */
-const cardNumberController = function cardNumberController() {
-  // Check if input field is empty, if yes, only show 0
-  state.cardNumber = formView.retrieveCardNumber();
+const cardNumberController = function cardNumberController(inputEl) {
+  // Retrieve card number
+  const cardNumber = formView.retrieveCardNumber();
 
+  // Apply error handling
+  errorController(cardNumber, inputEl);
+
+  // Save card number
+  state.cardNumber = cardNumber;
+
+  // Render card number
   state.cardNumber === ''
     ? frontCardView.renderCardNumber(
         DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY
@@ -82,16 +98,16 @@ const formController = function formController(curInput) {
     cardHolderNameController(curInput);
 
   // Retrieve card number and render data in UI
-  if (curInput === CLASS_NAME_CARD_NUMBER) cardNumberController();
+  if (curInput === CLASS_NAME_CARD_NUMBER) cardNumberController(curInput);
 
   // Retrieve exp date mm and render data in UI
-  if (curInput === CLASS_NAME_EXP_DATE_MM) expDateMMController();
+  if (curInput === CLASS_NAME_EXP_DATE_MM) expDateMMController(curInput);
 
   // Retrieve exp date yy and render data in UI
-  if (curInput === CLASS_NAME_EXP_DATE_YY) expDateYYController();
+  if (curInput === CLASS_NAME_EXP_DATE_YY) expDateYYController(curInput);
 
   // Retrieve cvc and render data in UI
-  if (curInput === CLASS_NAME_CVC) cardCVCController();
+  if (curInput === CLASS_NAME_CVC) cardCVCController(curInput);
 };
 
 const init = function init() {
