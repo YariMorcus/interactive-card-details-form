@@ -20,6 +20,8 @@ class FormView extends View {
 
       if (changedInput.includes('exp-yy')) changedInput = 'exp-yy';
 
+      if (changedInput.includes('cvc')) changedInput = 'cvc';
+
       handler(changedInput);
     });
   }

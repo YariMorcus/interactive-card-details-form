@@ -99,8 +99,17 @@ const expDateYYController = function expDateYYController(inputEl) {
  * Controller is used to handle the card cvc when input field changed
  * @returns {undefined}
  */
-const cardCVCController = function cardCVCController() {
-  state.cvc = formView.retrieveCardCVC();
+const cardCVCController = function cardCVCController(inputEl) {
+  // Retrieve card cvc
+  const cvc = formView.retrieveCardCVC();
+
+  // Apply error handling
+  errorController(cvc, inputEl);
+
+  // Save card cvc
+  state.cvc = cvc;
+
+  // Render card cvc
   backCardView.renderCardCVC(state.cvc);
 };
 
