@@ -1,4 +1,3 @@
-import { SLICE_START_POSITION_INPUT_CLASS_NAME } from '../config';
 import View from './View';
 
 class FormView extends View {
@@ -10,17 +9,17 @@ class FormView extends View {
 
       if (!input) return;
 
-      let changedInput = e.target.className.slice(
-        e.target.className.lastIndexOf(' ') +
-          SLICE_START_POSITION_INPUT_CLASS_NAME
-      );
+      let changedInput = e.target.className;
 
-      if (changedInput.endsWith('--invalid')) {
-        changedInput = e.target.className.slice(
-          e.target.className.indexOf(' ') + 10,
-          e.target.className.lastIndexOf(' ')
-        );
-      }
+      if (changedInput.includes('cardholder-name'))
+        changedInput = 'cardholder-name';
+
+      if (changedInput.includes('card-number')) changedInput = 'card-number';
+
+      if (changedInput.includes('exp-mm')) changedInput = 'exp-mm';
+
+      if (changedInput.includes('exp-yy')) changedInput = 'exp-yy';
+
       handler(changedInput);
     });
   }
@@ -55,6 +54,16 @@ class FormView extends View {
     this.#showRedOutline(inputClass, true);
 
     // show error
+    if (inputClass === 'exp-mm' || inputClass === 'exp-yy') {
+      this.#parentEl
+        .querySelector(`#card-form__error-exp-date`)
+        .classList.add('card-form__error--visible');
+
+      this.#parentEl.querySelector(`#card-form__error-exp-date`).innerText =
+        error;
+      return;
+    }
+
     this.#parentEl
       .querySelector(`#card-form__error-${inputClass}`)
       .classList.add('card-form__error--visible');
@@ -70,6 +79,15 @@ class FormView extends View {
     this.#hideRedOutline(inputClass);
 
     // hide error
+    if (inputClass === 'exp-mm' || inputClass === 'exp-yy') {
+      this.#parentEl
+        .querySelector(`#card-form__error-exp-date`)
+        .classList.remove('card-form__error--visible');
+
+      this.#parentEl.querySelector(`#card-form__error-exp-date`).innerText = '';
+      return;
+    }
+
     this.#parentEl
       .querySelector(`#card-form__error-${inputClass}`)
       .classList.remove('card-form__error--visible');

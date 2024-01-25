@@ -63,8 +63,17 @@ const cardNumberController = function cardNumberController(inputEl) {
  * Controller is used to handle the exp date mm when input field changed
  * @returns {undefined}
  */
-const expDateMMController = function expDateMMController() {
-  state.expDateMM = formView.retrieveCardExpDateMM();
+const expDateMMController = function expDateMMController(inputEl) {
+  // Retrieve exp date mm
+  const expDateMM = formView.retrieveCardExpDateMM();
+
+  // Apply error handling
+  errorController(expDateMM, inputEl);
+
+  // Save exp date mm
+  state.expDateMM = expDateMM;
+
+  // Render exp date mm
   frontCardView.renderExpDateMM(state.expDateMM);
 };
 
@@ -72,7 +81,7 @@ const expDateMMController = function expDateMMController() {
  * Controller is used to handle the exp date yy when input field changed
  * @returns {undefined}
  */
-const expDateYYController = function expDateYYController() {
+const expDateYYController = function expDateYYController(inputEl) {
   state.expDateYY = formView.retrieveCardExpDateYY();
   frontCardView.renderExpDateYY(state.expDateYY);
 };
