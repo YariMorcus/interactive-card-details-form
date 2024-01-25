@@ -82,7 +82,16 @@ const expDateMMController = function expDateMMController(inputEl) {
  * @returns {undefined}
  */
 const expDateYYController = function expDateYYController(inputEl) {
-  state.expDateYY = formView.retrieveCardExpDateYY();
+  // Retrieve exp date mm
+  const expDateYY = formView.retrieveCardExpDateYY();
+
+  // Apply error handling
+  errorController(expDateYY, inputEl);
+
+  // Save exp date mm
+  state.expDateYY = expDateYY;
+
+  // Render exp date mm
   frontCardView.renderExpDateYY(state.expDateYY);
 };
 
