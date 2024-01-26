@@ -1,6 +1,8 @@
 import backCardView from './Views/backCardView';
 import formView from './Views/formView';
 import frontCardView from './Views/frontCardView';
+import state from './model';
+
 import {
   CLASS_NAME_CARDHOLDER_NAME,
   CLASS_NAME_CARD_NUMBER,
@@ -9,16 +11,20 @@ import {
   CLASS_NAME_EXP_DATE_YY,
   DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY,
 } from './config';
-import state from './model';
 
 import { isEmpty, isInvalidFormat } from './helper';
 
 const errorController = function errorController(data, inputEl) {
+  // Check if field is empty
   if (isEmpty(data)) return formView.renderError(inputEl);
 
-  // 1. Check if card number is in right format
-  if (isInvalidFormat(data, inputEl))
-    return formView.renderError(inputEl, 'Wrong format, numbers only');
+  // Check if field matches format
+  const [isInvalid, statusCode] = isInvalidFormat(data, inputEl);
+
+  console.log('🚀 ~ errorController ~ isInvalid:', isInvalid);
+  console.log('🚀 ~ errorController ~ statusCode:', statusCode);
+
+  if (isInvalid) return formView.renderError(inputEl, statusCode);
 
   formView.hideError(inputEl);
 };

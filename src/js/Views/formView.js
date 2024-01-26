@@ -9,6 +9,9 @@ import View from './View';
 
 class FormView extends View {
   #parentEl = document.querySelector('.card-form');
+  #errorMessageBlank = "Can't be blank";
+  #errorMessageNumbersOnly = 'Wrong format, numbers only';
+  #errorMessageTooLong = 'Card number can only be 16 digits';
 
   addHandlerInputChange(handler) {
     this.#parentEl.addEventListener('input', (e) => {
@@ -60,7 +63,15 @@ class FormView extends View {
     return this.#parentEl.querySelector('.js-input-cvc').value.trim();
   }
 
-  renderError(inputClass, error = "Can't be blank") {
+  /**
+   * Render error to corresponding field based status code
+   * @param {string} inputClass name of the field
+   * @param {number} [statusCode=1] the status code
+   */
+  renderError(inputClass, statusCode = 1) {
+    // Retrieve corresponding error message based on status code
+    const error = this.#statusCodeHandler(statusCode);
+
     // set aria-invalid to true
     this.#toggleAria(inputClass, true);
 
@@ -125,6 +136,12 @@ class FormView extends View {
     this.#parentEl
       .querySelector(`.js-input-${inputClass}`)
       .classList.remove('card-form__input--invalid');
+  }
+
+  #statusCodeHandler(statusCode) {
+    if (statusCode === 1) return this.#errorMessageBlank;
+    if (statusCode === 2) return this.#errorMessageNumbersOnly;
+    if (statusCode === 3) return this.#errorMessageTooLong;
   }
 }
 

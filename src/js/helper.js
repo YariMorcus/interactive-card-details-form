@@ -12,16 +12,24 @@ export const isEmpty = (string) => {
  * @returns {boolean} true if incorrect, false otherwise
  */
 export const isInvalidFormat = (string, inputEl) => {
-  // check if input elem. is card number field and given string length is 16
+  // Check if input elem. is card number field and given string length is 16
   if (
     inputEl === CLASS_NAME_CARD_NUMBER &&
     string.replaceAll(' ', '').length === 16
   ) {
     const isInvalid = !CARD_NUMBER_REGEX.test(string);
 
-    // true if string contains one or more non-digits
-    return isInvalid;
+    // If isInvalid is true, return status code 2 (errorMessageNumbersOnly)
+    return [isInvalid, isInvalid ? 2 : 0];
   }
 
-  return false;
+  if (
+    inputEl === CLASS_NAME_CARD_NUMBER &&
+    string.replaceAll(' ', '').length > 16
+  ) {
+    // If length > 16 return true, return status code 3 (errorMessageTooLong)
+    return [true, 3];
+  }
+
+  return [false, 0];
 };
