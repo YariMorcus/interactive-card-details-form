@@ -15,7 +15,7 @@ class FrontCardView extends View {
 
   renderExpDateMM(expDateMM) {
     this._parentEl.querySelector('#js-card-front__exp-date-mm').innerText =
-      expDateMM;
+      expDateMM.length === 1 ? expDateMM.padStart(2, 0) : expDateMM;
   }
 
   renderExpDateYY(expDateYY) {
