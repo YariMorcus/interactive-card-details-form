@@ -21,8 +21,8 @@ const errorController = function errorController(data, inputEl) {
   // Check if field matches format
   const [isInvalid, statusCode] = isInvalidFormat(data, inputEl);
 
-  console.log('🚀 ~ errorController ~ isInvalid:', isInvalid);
-  console.log('🚀 ~ errorController ~ statusCode:', statusCode);
+  // console.log('🚀 ~ errorController ~ isInvalid:', isInvalid);
+  // console.log('🚀 ~ errorController ~ statusCode:', statusCode);
 
   if (isInvalid) return formView.renderError(inputEl, statusCode);
 
@@ -74,6 +74,9 @@ const cardNumberController = function cardNumberController(inputEl) {
  * @returns {undefined}
  */
 const expDateMMController = function expDateMMController(inputEl) {
+  // Prevent more than 2 numbers to be shown
+  formView.expDateShowTwoNumbersOnly();
+
   // Retrieve exp date mm
   const expDateMM = formView.retrieveCardExpDateMM();
 

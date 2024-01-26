@@ -53,7 +53,10 @@ class FormView extends View {
   }
 
   retrieveCardExpDateMM() {
-    return this.#parentEl.querySelector('.js-input-exp-mm').value.trim();
+    return this.#parentEl
+      .querySelector('.js-input-exp-mm')
+      .value.trim()
+      .slice(0, 2);
   }
 
   retrieveCardExpDateYY() {
@@ -62,6 +65,11 @@ class FormView extends View {
 
   retrieveCardCVC() {
     return this.#parentEl.querySelector('.js-input-cvc').value.trim();
+  }
+
+  expDateShowTwoNumbersOnly() {
+    const inputField = this.#parentEl.querySelector('.js-input-exp-mm');
+    inputField.value = inputField.value.slice(0, 2);
   }
 
   /**
