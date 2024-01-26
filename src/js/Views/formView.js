@@ -111,14 +111,21 @@ class FormView extends View {
   }
 
   hideError(inputClass) {
-    // set aria-invalid to false
+    // Set aria-invalid to false
     this.#toggleAria(inputClass, false);
 
-    // hide red outline
+    // Hide red outline
     this.#hideRedOutline(inputClass);
 
-    // hide error
+    // Hide error
     if (inputClass === 'exp-mm' || inputClass === 'exp-yy') {
+      const expMMValue = this.#parentEl.querySelector(`.js-input-exp-mm`).value;
+      const expYYValue = this.#parentEl.querySelector(`.js-input-exp-yy`).value;
+
+      // If one of the input fields is filled in and other is empty,
+      // do not hide the error for the other field
+      if (expMMValue === '' || expYYValue === '') return;
+
       this.#parentEl
         .querySelector(`#card-form__error-exp-date`)
         .classList.remove('card-form__error--visible');

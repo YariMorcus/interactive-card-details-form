@@ -102,7 +102,6 @@ const expDateMMController = function expDateMMController(inputEl) {
  * Controller is used to handle the exp date yy when input field changed
  * @returns {undefined}
  */
-// todo:  fix missing error when both mm and yy fields are empty and one is filled in
 const expDateYYController = function expDateYYController(inputEl) {
   // Prevent more than 4 numbers to be shown
   formView.truncateNumbers(inputEl, EXP_DATE_YY_TRUNCATE_LENGTH);
