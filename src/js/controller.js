@@ -9,6 +9,7 @@ import {
   CLASS_NAME_CVC,
   CLASS_NAME_EXP_DATE_MM,
   CLASS_NAME_EXP_DATE_YY,
+  CVC_TRUNCATE_LENGTH,
   DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY,
   DEFAULT_EXP_DATE_MM_WHEN_INPUT_FIELD_IS_EMPTY,
   EXP_DATE_MM_TRUNCATE_LENGTH,
@@ -78,7 +79,7 @@ const cardNumberController = function cardNumberController(inputEl) {
  */
 const expDateMMController = function expDateMMController(inputEl) {
   // Prevent more than 2 numbers to be shown
-  formView.expDateTruncateNumbers(inputEl, EXP_DATE_MM_TRUNCATE_LENGTH);
+  formView.truncateNumbers(inputEl, EXP_DATE_MM_TRUNCATE_LENGTH);
 
   // Retrieve exp date mm
   const expDateMM = formView.retrieveCardExpDateMM();
@@ -101,9 +102,10 @@ const expDateMMController = function expDateMMController(inputEl) {
  * Controller is used to handle the exp date yy when input field changed
  * @returns {undefined}
  */
+// todo:  fix missing error when both mm and yy fields are empty and one is filled in
 const expDateYYController = function expDateYYController(inputEl) {
   // Prevent more than 4 numbers to be shown
-  formView.expDateTruncateNumbers(inputEl, EXP_DATE_YY_TRUNCATE_LENGTH);
+  formView.truncateNumbers(inputEl, EXP_DATE_YY_TRUNCATE_LENGTH);
 
   // Retrieve exp date yy
   const expDateYY = formView.retrieveCardExpDateYY();
@@ -123,6 +125,9 @@ const expDateYYController = function expDateYYController(inputEl) {
  * @returns {undefined}
  */
 const cardCVCController = function cardCVCController(inputEl) {
+  // Prevent more than 3 numbers to be shown
+  formView.truncateNumbers(inputEl, CVC_TRUNCATE_LENGTH);
+
   // Retrieve card cvc
   const cvc = formView.retrieveCardCVC();
 

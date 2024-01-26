@@ -72,7 +72,7 @@ class FormView extends View {
    * @param {string} inputClass name of the input field
    * @param {trunc} number amount of characters to be shown
    */
-  expDateTruncateNumbers(inputClass, trunc) {
+  truncateNumbers(inputClass, trunc) {
     const inputField = this.#parentEl.querySelector(`.js-input-${inputClass}`);
     inputField.value = inputField.value.slice(0, trunc);
   }
