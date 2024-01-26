@@ -67,9 +67,14 @@ class FormView extends View {
     return this.#parentEl.querySelector('.js-input-cvc').value.trim();
   }
 
-  expDateShowTwoNumbersOnly() {
-    const inputField = this.#parentEl.querySelector('.js-input-exp-mm');
-    inputField.value = inputField.value.slice(0, 2);
+  /**
+   * Prevent user from filling in more characters than specified
+   * @param {string} inputClass name of the input field
+   * @param {trunc} number amount of characters to be shown
+   */
+  expDateTruncateNumbers(inputClass, trunc) {
+    const inputField = this.#parentEl.querySelector(`.js-input-${inputClass}`);
+    inputField.value = inputField.value.slice(0, trunc);
   }
 
   /**
