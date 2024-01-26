@@ -31,5 +31,13 @@ export const isInvalidFormat = (string, inputEl) => {
     return [true, 3];
   }
 
+  if (
+    inputEl === CLASS_NAME_CARD_NUMBER &&
+    string.replaceAll(' ', '').length < 16
+  ) {
+    // If length > 16 return true, return status code 4 (errorMessageTooShort)
+    return [true, 4];
+  }
+
   return [false, 0];
 };

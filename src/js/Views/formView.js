@@ -12,6 +12,7 @@ class FormView extends View {
   #errorMessageBlank = "Can't be blank";
   #errorMessageNumbersOnly = 'Wrong format, numbers only';
   #errorMessageTooLong = 'Card number can only be 16 digits';
+  #errorMessageTooShort = 'Card number must be 16 digits';
 
   addHandlerInputChange(handler) {
     this.#parentEl.addEventListener('input', (e) => {
@@ -142,6 +143,7 @@ class FormView extends View {
     if (statusCode === 1) return this.#errorMessageBlank;
     if (statusCode === 2) return this.#errorMessageNumbersOnly;
     if (statusCode === 3) return this.#errorMessageTooLong;
+    if (statusCode === 4) return this.#errorMessageTooShort;
   }
 }
 
