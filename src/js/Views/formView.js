@@ -1,4 +1,5 @@
 import {
+  CARD_NUMBER_TRUNCATE_LENGTH,
   CLASS_NAME_CARDHOLDER_NAME,
   CLASS_NAME_CARD_NUMBER,
   CLASS_NAME_CVC,
@@ -49,7 +50,10 @@ class FormView extends View {
   }
 
   retrieveCardNumber() {
-    return this.#parentEl.querySelector('.js-input-card-number').value.trim();
+    return this.#parentEl
+      .querySelector('.js-input-card-number')
+      .value.replaceAll(' ', '')
+      .slice(0, CARD_NUMBER_TRUNCATE_LENGTH);
   }
 
   retrieveCardExpDateMM() {

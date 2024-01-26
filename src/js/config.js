@@ -11,4 +11,5 @@ export const DEFAULT_EXP_DATE_MM_WHEN_INPUT_FIELD_IS_EMPTY = 1;
 export const EXP_DATE_MM_TRUNCATE_LENGTH = 2;
 export const EXP_DATE_YY_TRUNCATE_LENGTH = 4;
 export const CVC_TRUNCATE_LENGTH = 3;
+export const CARD_NUMBER_TRUNCATE_LENGTH = 16;
 export const CARD_NUMBER_REGEX = /^(\d{4})\s?(\d{4})\s?(\d{4})\s?(\d{4})$/;
