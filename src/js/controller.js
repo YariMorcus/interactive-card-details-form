@@ -10,6 +10,7 @@ import {
   CLASS_NAME_EXP_DATE_MM,
   CLASS_NAME_EXP_DATE_YY,
   DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY,
+  DEFAULT_EXP_DATE_MM_WHEN_INPUT_FIELD_IS_EMPTY,
 } from './config';
 
 import { isEmpty, isInvalidFormat } from './helper';
@@ -87,7 +88,11 @@ const expDateMMController = function expDateMMController(inputEl) {
   state.expDateMM = expDateMM;
 
   // Render exp date mm
-  frontCardView.renderExpDateMM(state.expDateMM);
+  state.expDateMM === ''
+    ? frontCardView.renderExpDateMM(
+        DEFAULT_EXP_DATE_MM_WHEN_INPUT_FIELD_IS_EMPTY
+      )
+    : frontCardView.renderExpDateMM(state.expDateMM);
 };
 
 /**
