@@ -18,6 +18,7 @@ import {
 
 import { isEmpty, isInvalidFormat } from './helper';
 
+// TODO fix card number error when length is too long
 const errorController = function errorController(data, inputEl) {
   // Check if field is empty
   if (isEmpty(data)) return formView.renderError(inputEl);
@@ -68,7 +69,7 @@ const cardNumberController = function cardNumberController(inputEl) {
   // Render card number
   state.cardNumber === ''
     ? frontCardView.renderCardNumber(
-        DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY
+        DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY.toString()
       )
     : frontCardView.renderCardNumber(state.cardNumber);
 };
