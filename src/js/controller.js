@@ -11,6 +11,8 @@ import {
   CLASS_NAME_EXP_DATE_YY,
   DEFAULT_CARD_NUMBER_WHEN_INPUT_FIELD_IS_EMPTY,
   DEFAULT_EXP_DATE_MM_WHEN_INPUT_FIELD_IS_EMPTY,
+  EXP_DATE_MM_TRUNCATE_LENGTH,
+  EXP_DATE_YY_TRUNCATE_LENGTH,
 } from './config';
 
 import { isEmpty, isInvalidFormat } from './helper';
@@ -76,7 +78,7 @@ const cardNumberController = function cardNumberController(inputEl) {
  */
 const expDateMMController = function expDateMMController(inputEl) {
   // Prevent more than 2 numbers to be shown
-  formView.expDateShowTwoNumbersOnly();
+  formView.expDateTruncateNumbers(inputEl, EXP_DATE_MM_TRUNCATE_LENGTH);
 
   // Retrieve exp date mm
   const expDateMM = formView.retrieveCardExpDateMM();
@@ -100,6 +102,9 @@ const expDateMMController = function expDateMMController(inputEl) {
  * @returns {undefined}
  */
 const expDateYYController = function expDateYYController(inputEl) {
+  // Prevent more than 4 numbers to be shown
+  formView.expDateTruncateNumbers(inputEl, EXP_DATE_YY_TRUNCATE_LENGTH);
+
   // Retrieve exp date yy
   const expDateYY = formView.retrieveCardExpDateYY();
 
