@@ -11,10 +11,14 @@ import {
 } from './config';
 import state from './model';
 
-import { isEmpty } from './helper';
+import { isEmpty, isInvalidFormat } from './helper';
 
 const errorController = function errorController(data, inputEl) {
   if (isEmpty(data)) return formView.renderError(inputEl);
+
+  // 1. Check if card number is in right format
+  if (isInvalidFormat(data, inputEl))
+    return formView.renderError(inputEl, 'Wrong format, numbers only');
 
   formView.hideError(inputEl);
 };
