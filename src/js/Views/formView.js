@@ -42,6 +42,13 @@ class FormView extends View {
     });
   }
 
+  addHandlerSubmit(handler) {
+    this.#parentEl.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handler();
+    });
+  }
+
   retrieveCardHolderName() {
     return this.#parentEl
       .querySelector('.js-input-cardholder-name')

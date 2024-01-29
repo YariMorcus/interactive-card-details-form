@@ -1,6 +1,7 @@
 import backCardView from './Views/backCardView';
 import formView from './Views/formView';
 import frontCardView from './Views/frontCardView';
+import thankYouView from './Views/thankYouView';
 import state from './model';
 
 import {
@@ -161,8 +162,14 @@ const formController = function formController(curInput) {
   if (curInput === CLASS_NAME_CVC) cardCVCController(curInput);
 };
 
+const formSubmitController = function formSubmitController() {
+  //  Render thank you page
+  thankYouView.render();
+};
+
 const init = function init() {
   formView.addHandlerInputChange(formController);
+  formView.addHandlerSubmit(formSubmitController);
 };
 
 init();
