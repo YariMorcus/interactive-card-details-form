@@ -167,11 +167,9 @@ img {
     }
   }
 
-  &--noscript {
-    @include m.breakpoint-lg() {
-      justify-content: center;
-      flex-direction: column;
-    }
+  @include m.scripting-disabled() {
+    justify-content: center;
+    flex-direction: column;
   }
 
   & .noscript {

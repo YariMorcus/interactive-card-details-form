@@ -32,3 +32,9 @@
     @content;
   }
 }
+
+@mixin scripting-disabled() {
+  @media (scripting: none) {
+    @content;
+  }
+}
