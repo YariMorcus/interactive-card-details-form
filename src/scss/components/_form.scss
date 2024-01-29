@@ -11,12 +11,21 @@
   }
 
   &__group {
-    margin-bottom: 2rem;
+    position: relative;
+    margin-bottom: 3rem;
+
+    @include m.breakpoint-lg() {
+      margin-bottom: 4rem;
+    }
   }
 
   &__group-cvc {
     flex: 1;
     margin-bottom: 3rem;
+
+    @include m.breakpoint-lg() {
+      margin-bottom: 4rem;
+    }
   }
 
   &__label {
@@ -72,10 +81,16 @@
   }
 
   &__error {
+    position: absolute;
+    bottom: -2rem;
     display: none;
     color: v.$form-input-error-color;
     font-size: 1.1rem;
     letter-spacing: initial;
+
+    @include m.breakpoint-lg() {
+      bottom: -2.5rem;
+    }
   }
 
   &__error--visible {
@@ -99,6 +114,7 @@
   }
 
   &__exp-date-inputs {
+    position: relative;
     display: flex;
     justify-content: space-between;
     margin-bottom: 6px;
