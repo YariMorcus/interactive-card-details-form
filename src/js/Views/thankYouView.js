@@ -3,6 +3,17 @@ import View from './View';
 
 class thankYouView extends View {
   _parentEl = document.querySelector('.right-column');
+  #continueButton = '#js-thank__you-continue';
+
+  addHandlerContinue(handler) {
+    this._parentEl.addEventListener('click', (e) => {
+      const button = e.target.closest(this.#continueButton);
+
+      if (!button) return;
+
+      handler();
+    });
+  }
 
   _generateMarkup() {
     const markup = `

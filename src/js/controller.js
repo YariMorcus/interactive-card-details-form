@@ -163,13 +163,19 @@ const formController = function formController(curInput) {
 };
 
 const formSubmitController = function formSubmitController() {
-  //  Render thank you page
+  // Render thank you page
   thankYouView.render();
+};
+
+const thankYouContinueController = function thankYouContinueController() {
+  // Reload page (form will be reset)
+  location.reload();
 };
 
 const init = function init() {
   formView.addHandlerInputChange(formController);
   formView.addHandlerSubmit(formSubmitController);
+  thankYouView.addHandlerContinue(thankYouContinueController);
 };
 
 init();
