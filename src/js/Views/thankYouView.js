@@ -23,6 +23,10 @@ class thankYouView extends View {
           <p class="thank-you__text">We've added your card details</p>
           <button id="js-thank__you-continue" class="button">Continue</button>
       </div>
+      <footer class="footer">
+        Challenge by <a class="footer__link" rel="noopener noreferrer" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded&nbsp;by&nbsp;<a class="footer__link" rel="noopener noreferrer" href="https://www.linkedin.com/in/yarimorcus" target="_blank">Yari&nbsp;Morcus</a>.
+    </footer> <!-- .footer -->
     `;
 
     return markup;
