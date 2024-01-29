@@ -49,18 +49,29 @@ class FormView extends View {
     });
   }
 
+  /**
+   * Retrieve cardholder name
+   * @returns {string} cardholder name
+   */
   retrieveCardHolderName() {
     return this.#parentEl
       .querySelector('.js-input-cardholder-name')
       .value.trim();
   }
 
+  /**
+   * Retrieve card number
+   * @returns {string} card number (whitespace removed)
+   */
   retrieveCardNumber() {
     return this.#parentEl
       .querySelector('.js-input-card-number')
       .value.replaceAll(' ', '');
   }
-
+  /**
+   * Retrieve card expiry date month
+   * @returns {string} card expiry date month
+   */
   retrieveCardExpDateMM() {
     return this.#parentEl
       .querySelector('.js-input-exp-mm')
@@ -68,10 +79,18 @@ class FormView extends View {
       .slice(0, 2);
   }
 
+  /**
+   * Retrieve card expiry date year
+   * @returns {string} card expiry date year
+   */
   retrieveCardExpDateYY() {
     return this.#parentEl.querySelector('.js-input-exp-yy').value.trim();
   }
 
+  /**
+   * Retrieve card CVC
+   * @returns {string} card CVC
+   */
   retrieveCardCVC() {
     return this.#parentEl.querySelector('.js-input-cvc').value.trim();
   }
@@ -95,13 +114,13 @@ class FormView extends View {
     // Retrieve corresponding error message based on status code
     const error = this.#statusCodeHandler(statusCode);
 
-    // set aria-invalid to true
+    // Set aria-invalid to true
     this.#toggleAria(inputClass, true);
 
-    // show red outline
+    // Show red outline
     this.#showRedOutline(inputClass, true);
 
-    // show error
+    // Show error
     if (inputClass === 'exp-mm' || inputClass === 'exp-yy') {
       this.#parentEl
         .querySelector(`#card-form__error-exp-date`)
@@ -119,6 +138,11 @@ class FormView extends View {
       error;
   }
 
+  /**
+   * Hide corresponding error
+   * @param {string} inputClass class name
+   * @returns {undefined}
+   */
   hideError(inputClass) {
     // Set aria-invalid to false
     this.#toggleAria(inputClass, false);
@@ -150,24 +174,42 @@ class FormView extends View {
       '';
   }
 
+  /**
+   * Toggle aria-invalid attribute
+   * @param {string} inputClass class name
+   * @param {bool} bool value to be set
+   */
   #toggleAria(inputClass, bool) {
     this.#parentEl
       .querySelector(`.js-input-${inputClass}`)
       .setAttribute('aria-invalid', bool);
   }
 
+  /**
+   * Indicate that field has an error (red outline)
+   * @param {string} inputClass class name
+   */
   #showRedOutline(inputClass) {
     this.#parentEl
       .querySelector(`.js-input-${inputClass}`)
       .classList.add('card-form__input--invalid');
   }
 
+  /**
+   * Hide error outline
+   * @param {string} inputClass class name
+   */
   #hideRedOutline(inputClass) {
     this.#parentEl
       .querySelector(`.js-input-${inputClass}`)
       .classList.remove('card-form__input--invalid');
   }
 
+  /**
+   * Returns appropriate error message based on given status code
+   * @param {number} statusCode current status code
+   * @returns {string} the error message
+   */
   #statusCodeHandler(statusCode) {
     if (statusCode === 1) return this.#errorMessageBlank;
     if (statusCode === 2) return this.#errorMessageNumbersOnly;
