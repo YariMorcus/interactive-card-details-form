@@ -18,7 +18,7 @@
   }
 
   @include m.breakpoint-lg() {
-    top: calc(50% + 4rem);
+    top: calc(50% + 1rem);
     right: 0;
     left: initial;
     display: flex;
