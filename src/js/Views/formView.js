@@ -1,5 +1,4 @@
 import {
-  CARD_NUMBER_TRUNCATE_LENGTH,
   CLASS_NAME_CARDHOLDER_NAME,
   CLASS_NAME_CARD_NUMBER,
   CLASS_NAME_CVC,
@@ -12,7 +11,7 @@ class FormView extends View {
   #parentEl = document.querySelector('.card-form');
   #errorMessageBlank = "Can't be blank";
   #errorMessageNumbersOnly = 'Wrong format, numbers only';
-  #errorMessageTooLong = 'Card number can only be 16 digits';
+  #errorMessageTooLong = 'Card number can only be 16 digits (too long)';
   #errorMessageTooShort = 'Card number must be 16 digits';
 
   addHandlerInputChange(handler) {
@@ -52,8 +51,7 @@ class FormView extends View {
   retrieveCardNumber() {
     return this.#parentEl
       .querySelector('.js-input-card-number')
-      .value.replaceAll(' ', '')
-      .slice(0, CARD_NUMBER_TRUNCATE_LENGTH);
+      .value.replaceAll(' ', '');
   }
 
   retrieveCardExpDateMM() {

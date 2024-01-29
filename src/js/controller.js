@@ -4,6 +4,7 @@ import frontCardView from './Views/frontCardView';
 import state from './model';
 
 import {
+  CARD_NUMBER_TRUNCATE_LENGTH,
   CLASS_NAME_CARDHOLDER_NAME,
   CLASS_NAME_CARD_NUMBER,
   CLASS_NAME_CVC,
@@ -18,17 +19,12 @@ import {
 
 import { isEmpty, isInvalidFormat } from './helper';
 
-// TODO fix card number error when length is too long
 const errorController = function errorController(data, inputEl) {
   // Check if field is empty
   if (isEmpty(data)) return formView.renderError(inputEl);
 
   // Check if field matches format
   const [isInvalid, statusCode] = isInvalidFormat(data, inputEl);
-
-  // console.log('🚀 ~ errorController ~ isInvalid:', isInvalid);
-  // console.log('🚀 ~ errorController ~ statusCode:', statusCode);
-
   if (isInvalid) return formView.renderError(inputEl, statusCode);
 
   formView.hideError(inputEl);
@@ -63,8 +59,8 @@ const cardNumberController = function cardNumberController(inputEl) {
   // Apply error handling
   errorController(cardNumber, inputEl);
 
-  // Save card number
-  state.cardNumber = cardNumber;
+  // Save card number up to 16 numbers
+  state.cardNumber = cardNumber.slice(0, CARD_NUMBER_TRUNCATE_LENGTH);
 
   // Render card number
   state.cardNumber === ''
