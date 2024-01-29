@@ -2,14 +2,17 @@ import View from './View';
 
 class FrontCardView extends View {
   _parentEl = document.querySelector('.card-front');
+  #cardholderName = '#js-card-front__cardholder-name';
+  #cardNumber = '#js-card-front__card-number';
+  #expDateMM = '#js-card-front__exp-date-mm';
+  #expDateYY = '#js-card-front__exp-date-yy';
 
   /**
    * Render the cardholder name onto the card
    * @param {string} name the cardholder name
    */
   renderCardHolderName(name) {
-    this._parentEl.querySelector('#js-card-front__cardholder-name').innerText =
-      name;
+    this._parentEl.querySelector(this.#cardholderName).innerText = name;
   }
 
   /**
@@ -17,7 +20,7 @@ class FrontCardView extends View {
    * @param {string} number the card number
    */
   renderCardNumber(number) {
-    this._parentEl.querySelector('#js-card-front__card-number').innerText =
+    this._parentEl.querySelector(this.#cardNumber).innerText =
       this.#createNumberGroup(number);
   }
 
@@ -27,7 +30,7 @@ class FrontCardView extends View {
    */
   renderExpDateMM(expDateMM) {
     // If month contains 1 digit, append it with a 0
-    this._parentEl.querySelector('#js-card-front__exp-date-mm').innerText =
+    this._parentEl.querySelector(this.#expDateMM).innerText =
       expDateMM.length === 1 ? expDateMM.padStart(2, 0) : expDateMM;
   }
 
@@ -36,8 +39,7 @@ class FrontCardView extends View {
    * @param {string} expDateYY the expiry date year
    */
   renderExpDateYY(expDateYY) {
-    this._parentEl.querySelector('#js-card-front__exp-date-yy').innerText =
-      expDateYY;
+    this._parentEl.querySelector(this.#expDateYY).innerText = expDateYY;
   }
 
   /**

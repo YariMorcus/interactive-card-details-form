@@ -9,6 +9,25 @@ import View from './View';
 
 class FormView extends View {
   #parentEl = document.querySelector('.card-form');
+
+  // Form prefixes and inputs
+  #jsInputPrefix = '.js-input-';
+  #cardFormInput = 'card-form__input';
+  #inputCardholderName = '.js-input-cardholder-name';
+  #inputCardNumber = '.js-input-card-number';
+  #inputCardExpDateMM = '.js-input-exp-mm';
+  #inputCardExpDateYY = '.js-input-exp-yy';
+  #inputCardCVC = '.js-input-cvc';
+
+  // Form error prefixes and placeholders
+  #cardFormErrorPrefix = '#card-form__error-';
+  #cardFormErrorExpDate = '#card-form__error-exp-date';
+
+  // Form error outline class
+  #cardFormInputInvalid = 'card-form__input--invalid';
+
+  // Form error messages
+  #cardFormErrorVisible = 'card-form__error--visible';
   #errorMessageBlank = "Can't be blank";
   #errorMessageNumbersOnly = 'Wrong format, numbers only';
   #errorMessageTooLong = 'Card number can only be 16 digits (too long)';
@@ -16,7 +35,7 @@ class FormView extends View {
 
   addHandlerInputChange(handler) {
     this.#parentEl.addEventListener('input', (e) => {
-      const input = e.target.classList.contains('card-form__input');
+      const input = e.target.classList.contains(this.#cardFormInput);
 
       if (!input) return;
 
@@ -54,9 +73,7 @@ class FormView extends View {
    * @returns {string} cardholder name
    */
   retrieveCardHolderName() {
-    return this.#parentEl
-      .querySelector('.js-input-cardholder-name')
-      .value.trim();
+    return this.#parentEl.querySelector(this.#inputCardholderName).value.trim();
   }
 
   /**
@@ -65,7 +82,7 @@ class FormView extends View {
    */
   retrieveCardNumber() {
     return this.#parentEl
-      .querySelector('.js-input-card-number')
+      .querySelector(this.#inputCardNumber)
       .value.replaceAll(' ', '');
   }
   /**
@@ -74,7 +91,7 @@ class FormView extends View {
    */
   retrieveCardExpDateMM() {
     return this.#parentEl
-      .querySelector('.js-input-exp-mm')
+      .querySelector(this.#inputCardExpDateMM)
       .value.trim()
       .slice(0, 2);
   }
@@ -84,7 +101,7 @@ class FormView extends View {
    * @returns {string} card expiry date year
    */
   retrieveCardExpDateYY() {
-    return this.#parentEl.querySelector('.js-input-exp-yy').value.trim();
+    return this.#parentEl.querySelector(this.#inputCardExpDateYY).value.trim();
   }
 
   /**
@@ -92,7 +109,7 @@ class FormView extends View {
    * @returns {string} card CVC
    */
   retrieveCardCVC() {
-    return this.#parentEl.querySelector('.js-input-cvc').value.trim();
+    return this.#parentEl.querySelector(this.#inputCardCVC).value.trim();
   }
 
   /**
@@ -101,7 +118,9 @@ class FormView extends View {
    * @param {trunc} number amount of characters to be shown
    */
   truncateNumbers(inputClass, trunc) {
-    const inputField = this.#parentEl.querySelector(`.js-input-${inputClass}`);
+    const inputField = this.#parentEl.querySelector(
+      `${this.#jsInputPrefix}${inputClass}`
+    );
     inputField.value = inputField.value.slice(0, trunc);
   }
 
@@ -123,19 +142,20 @@ class FormView extends View {
     // Show error
     if (inputClass === 'exp-mm' || inputClass === 'exp-yy') {
       this.#parentEl
-        .querySelector(`#card-form__error-exp-date`)
-        .classList.add('card-form__error--visible');
+        .querySelector(this.#cardFormErrorExpDate)
+        .classList.add(this.#cardFormErrorVisible);
 
-      this.#parentEl.querySelector(`#card-form__error-exp-date`).innerText =
+      this.#parentEl.querySelector(this.#cardFormErrorExpDate).innerText =
         error;
       return;
     }
 
     this.#parentEl
-      .querySelector(`#card-form__error-${inputClass}`)
-      .classList.add('card-form__error--visible');
-    this.#parentEl.querySelector(`#card-form__error-${inputClass}`).innerText =
-      error;
+      .querySelector(`${this.#cardFormErrorPrefix}${inputClass}`)
+      .classList.add(this.#cardFormErrorVisible);
+    this.#parentEl.querySelector(
+      `${this.#cardFormErrorPrefix}${inputClass}`
+    ).innerText = error;
   }
 
   /**
@@ -152,26 +172,31 @@ class FormView extends View {
 
     // Hide error
     if (inputClass === 'exp-mm' || inputClass === 'exp-yy') {
-      const expMMValue = this.#parentEl.querySelector(`.js-input-exp-mm`).value;
-      const expYYValue = this.#parentEl.querySelector(`.js-input-exp-yy`).value;
+      const expMMValue = this.#parentEl.querySelector(
+        this.#inputCardExpDateMM
+      ).value;
+      const expYYValue = this.#parentEl.querySelector(
+        this.#inputCardExpDateYY
+      ).value;
 
       // If one of the input fields is filled in and other is empty,
       // do not hide the error for the other field
       if (expMMValue === '' || expYYValue === '') return;
 
       this.#parentEl
-        .querySelector(`#card-form__error-exp-date`)
-        .classList.remove('card-form__error--visible');
+        .querySelector(this.#cardFormErrorExpDate)
+        .classList.remove(this.#cardFormErrorVisible);
 
-      this.#parentEl.querySelector(`#card-form__error-exp-date`).innerText = '';
+      this.#parentEl.querySelector(this.#cardFormErrorExpDate).innerText = '';
       return;
     }
 
     this.#parentEl
-      .querySelector(`#card-form__error-${inputClass}`)
-      .classList.remove('card-form__error--visible');
-    this.#parentEl.querySelector(`#card-form__error-${inputClass}`).innerText =
-      '';
+      .querySelector(`${this.#cardFormErrorPrefix}${inputClass}`)
+      .classList.remove(this.#cardFormErrorVisible);
+    this.#parentEl.querySelector(
+      `${this.#cardFormErrorPrefix}${inputClass}`
+    ).innerText = '';
   }
 
   /**
@@ -181,7 +206,7 @@ class FormView extends View {
    */
   #toggleAria(inputClass, bool) {
     this.#parentEl
-      .querySelector(`.js-input-${inputClass}`)
+      .querySelector(`${this.#jsInputPrefix}${inputClass}`)
       .setAttribute('aria-invalid', bool);
   }
 
@@ -191,8 +216,8 @@ class FormView extends View {
    */
   #showRedOutline(inputClass) {
     this.#parentEl
-      .querySelector(`.js-input-${inputClass}`)
-      .classList.add('card-form__input--invalid');
+      .querySelector(`${this.#jsInputPrefix}${inputClass}`)
+      .classList.add(this.#cardFormInputInvalid);
   }
 
   /**
@@ -201,8 +226,8 @@ class FormView extends View {
    */
   #hideRedOutline(inputClass) {
     this.#parentEl
-      .querySelector(`.js-input-${inputClass}`)
-      .classList.remove('card-form__input--invalid');
+      .querySelector(`${this.#jsInputPrefix}${inputClass}`)
+      .classList.remove(this.#cardFormInputInvalid);
   }
 
   /**
