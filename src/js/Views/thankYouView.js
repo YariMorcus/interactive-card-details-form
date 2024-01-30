@@ -21,7 +21,7 @@ class thankYouView extends View {
           <img src="${icons}/img/icon-complete.svg" alt="" class="thank-you__success-icon">
           <h1 class="thank-you__title">Thank you!</h1>
           <p class="thank-you__text">We've added your card details</p>
-          <button id="js-thank__you-continue" class="button">Continue</button>
+          <button id="js-thank__you-continue" class="button" aria-label="Go back">Continue</button>
       </div>
       <footer class="footer">
         Challenge by <a class="footer__link" rel="noopener noreferrer" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
