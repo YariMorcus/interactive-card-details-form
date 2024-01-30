@@ -115,7 +115,7 @@ class FormView extends View {
   /**
    * Prevent user from filling in more characters than specified
    * @param {string} inputClass name of the input field
-   * @param {trunc} number amount of characters to be shown
+   * @param {number} trunc amount of characters to be shown
    */
   truncateNumbers(inputClass, trunc) {
     const inputField = this.#parentEl.querySelector(
