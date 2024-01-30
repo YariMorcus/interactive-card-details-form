@@ -73,7 +73,7 @@
                         <legend class="card-form__exp-date-legend">Exp. date (mm/yy)</legend>
                         <div class="card-form__exp-date-inputs">
                             <input type="number" class="card-form__input card-form__input-exp-mm js-input-exp-mm" placeholder="MM" min="1" max="12" required aria-describedby="card-form__error-exp-date" aria-invalid="true">
-                            <input type="tel" class="card-form__input card-form__input-exp-yy js-input-exp-yy" placeholder="YY" required aria-describedby="card-form__error-exp-date" aria-invalid="true">
+                            <input type="tel" class="card-form__input card-form__input-exp-yy js-input-exp-yy" placeholder="YY" pattern="^(\d{4})$" required aria-describedby="card-form__error-exp-date" aria-invalid="true">
                             <span id="card-form__error-exp-date" class="card-form__error" aria-live="assertive"></span>
                         </div>
                     </fieldset> <!-- .card-form__exp-date -->
