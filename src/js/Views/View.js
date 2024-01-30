@@ -1,5 +1,5 @@
 export default class View {
-  _data;
+  _data = null;
 
   /**
    * Responsible for storing the data in the corresponding view and
