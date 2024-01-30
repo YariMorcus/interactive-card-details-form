@@ -31,6 +31,8 @@
     <meta name="twitter:image" content="../screenshot.png">
     <meta name="twitter:image:alt" content="A screenshot of the page">
 
+    <meta name="format-detection" content="telephone=no">
+
 </head>
 <body>
 
@@ -70,10 +72,10 @@
 
                 <div class="card-form__two-columns">
                     <fieldset class="card-form__exp-date">
-                        <legend class="card-form__exp-date-legend">Exp. date (mm/yy)</legend>
+                        <legend id="card-form__exp-date-legend" class="card-form__exp-date-legend">Exp. date (mm/yy)</legend>
                         <div class="card-form__exp-date-inputs">
-                            <input type="tel" class="card-form__input card-form__input-exp-mm js-input-exp-mm" placeholder="MM" pattern="^(0?[1-9]|1[1-2])$" required aria-describedby="card-form__error-exp-date" aria-invalid="true">
-                            <input type="tel" class="card-form__input card-form__input-exp-yy js-input-exp-yy" placeholder="YY" pattern="^(\d{4})$" required aria-describedby="card-form__error-exp-date" aria-invalid="true">
+                            <input type="tel" class="card-form__input card-form__input-exp-mm js-input-exp-mm" placeholder="MM" pattern="^(0?[1-9]|1[0-2])$" required aria-describedby="card-form__error-exp-date" aria-invalid="true" aria-labelledby="card-form__exp-date-legend">
+                            <input type="tel" class="card-form__input card-form__input-exp-yy js-input-exp-yy" placeholder="YY" pattern="^(\d{4})$" required aria-describedby="card-form__error-exp-date" aria-invalid="true" aria-labelledby="card-form__exp-date-legend">
                             <span id="card-form__error-exp-date" class="card-form__error" aria-live="assertive"></span>
                         </div>
                     </fieldset> <!-- .card-form__exp-date -->
